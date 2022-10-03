@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour{
             if(Input.GetKey(KeyCode.W)){
                 if(Input.GetKey(KeyCode.LeftShift)){
                     moveDirection = Vector3.forward * speed * 1.5f;
-                    anim.SetInteger("transition", 2); //trocar essa animacao pela de corrida
+                    anim.SetInteger("transition", 2);
                 }
                 else{
                     moveDirection = Vector3.forward * speed;
