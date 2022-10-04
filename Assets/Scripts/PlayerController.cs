@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour{
     private float rot;
     public AudioSource audioSource;
     public AudioClip [] audioCLipArray;
-    public AudioClip B;
     //private Vector3 moveDirection;
 
 
@@ -82,51 +81,49 @@ public class PlayerController : MonoBehaviour{
             if(other.gameObject.tag.Contains("D"))
                 audioSource.PlayOneShot(audioCLipArray[3], 0.7f);
             if(other.gameObject.tag.Contains("E"))
-            /*
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[4], 0.7f);
             if(other.gameObject.tag.Contains("F"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[5], 0.7f);
             if(other.gameObject.tag.Contains("G"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[6], 0.7f);
             if(other.gameObject.tag.Contains("H"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[7], 0.7f);
             if(other.gameObject.tag.Contains("I"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[8], 0.7f);
             if(other.gameObject.tag.Contains("J"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
-            if(other.gameObject.tag.Contains("K"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
-            if(other.gameObject.tag.Contains("L"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[9], 0.7f);
+            //if(other.gameObject.tag.Contains("K"))
+            //    audioSource.PlayOneShot(audioCLipArray[10], 0.7f);
+            if(other.gameObject.tag.Contains("rL"))
+                audioSource.PlayOneShot(audioCLipArray[10], 0.7f);
             if(other.gameObject.tag.Contains("M"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[11], 0.7f);
             if(other.gameObject.tag.Contains("N"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[12], 0.7f);
             if(other.gameObject.tag.Contains("O"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[13], 0.7f);
             if(other.gameObject.tag.Contains("P"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[14], 0.7f);
             if(other.gameObject.tag.Contains("Q"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[15], 0.7f);
             if(other.gameObject.tag.Contains("R"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[16], 0.7f);
             if(other.gameObject.tag.Contains("S"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[17], 0.7f);
             if(other.gameObject.tag.Contains("T"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[18], 0.7f);
             if(other.gameObject.tag.Contains("U"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[19], 0.7f);
             if(other.gameObject.tag.Contains("V"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
-            if(other.gameObject.tag.Contains("W"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[20], 0.7f);
+            //if(other.gameObject.tag.Contains("W"))
+            //    audioSource.PlayOneShot(audioCLipArray[22], 0.7f);
             if(other.gameObject.tag.Contains("X"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
-            if(other.gameObject.tag.Contains("Y"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
+                audioSource.PlayOneShot(audioCLipArray[21], 0.7f);
+            //if(other.gameObject.tag.Contains("Y"))
+            //    audioSource.PlayOneShot(audioCLipArray[24], 0.7f);
             if(other.gameObject.tag.Contains("Z"))
-                audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
-                */
+                audioSource.PlayOneShot(audioCLipArray[22], 0.7f);
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "World"){
