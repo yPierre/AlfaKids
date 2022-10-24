@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour{
     private float rot;
     public AudioSource audioSource;
     public AudioClip [] audioCLipArray;
+    public int count = 0;
     //private Vector3 moveDirection;
 
 
@@ -25,22 +26,38 @@ public class PlayerController : MonoBehaviour{
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
+        //audioSource.PlayOneShot(audioCLipArray[28], 0.7f); //Apresentacao
+        StartCoroutine(playSoundWithDelay(audioCLipArray[28], 0));
+        //StartCoroutine(ExampleCoroutine());
+        //audioSource.PlayOneShot(audioCLipArray[29], 0.7f); //Orientacao
+        StartCoroutine(playSoundWithDelay(audioCLipArray[29], 4));
+        //audioSource.PlayDelayed(2f);
+        //audioSource.PlayOneShot(audioCLipArray[23], 0.7f); //Primeira Letra, B
+        StartCoroutine(playSoundWithDelay(audioCLipArray[33], 15));
 
 
+    }
+
+    IEnumerator playSoundWithDelay(AudioClip clip, float delay){
+        yield return new WaitForSeconds(delay);
+        audioSource.PlayOneShot(clip);
     }
 
     // Update is called once per frame
     void Update(){
         Move();
+        //audioSource.PlayOneShot(audioCLipArray[28], 0.7f); //Apresentacao
+        //audioSource.PlayOneShot(audioCLipArray[29], 0.7f); //Orientacao
+        //audioSource.PlayOneShot(audioCLipArray[23], 0.7f); //Primeira Letra, B
     }
 
     void Move(){
 
         Vector3 moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical"));
         if(controller.isGrounded){
-            if(Input.GetKey(KeyCode.W)){
+            if(Input.GetKey(KeyCode.UpArrow)){
                 if(Input.GetKey(KeyCode.LeftShift)){
-                    moveDirection = Vector3.forward * speed * 1.5f;
+                    moveDirection = Vector3.forward * speed * 1.8f;
                     anim.SetInteger("transition", 2);
                 }
                 else{
@@ -48,7 +65,7 @@ public class PlayerController : MonoBehaviour{
                     anim.SetInteger("transition", 1);
                 }
             }
-            if(Input.GetKeyUp(KeyCode.W)){
+            else{
                 moveDirection = Vector3.zero;
                 anim.SetInteger("transition", 0);
             }
@@ -68,9 +85,7 @@ public class PlayerController : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.tag == "Fruit"){
-            Destroy(other.gameObject);
-        }
+
         if(other.gameObject.tag.Contains("Letter")){
             if(other.gameObject.tag.Contains("A"))
                 audioSource.PlayOneShot(audioCLipArray[0], 0.7f);
@@ -92,8 +107,6 @@ public class PlayerController : MonoBehaviour{
                 audioSource.PlayOneShot(audioCLipArray[8], 0.7f);
             if(other.gameObject.tag.Contains("J"))
                 audioSource.PlayOneShot(audioCLipArray[9], 0.7f);
-            //if(other.gameObject.tag.Contains("K"))
-            //    audioSource.PlayOneShot(audioCLipArray[10], 0.7f);
             if(other.gameObject.tag.Contains("rL"))
                 audioSource.PlayOneShot(audioCLipArray[10], 0.7f);
             if(other.gameObject.tag.Contains("M"))
@@ -116,19 +129,86 @@ public class PlayerController : MonoBehaviour{
                 audioSource.PlayOneShot(audioCLipArray[19], 0.7f);
             if(other.gameObject.tag.Contains("V"))
                 audioSource.PlayOneShot(audioCLipArray[20], 0.7f);
-            //if(other.gameObject.tag.Contains("W"))
-            //    audioSource.PlayOneShot(audioCLipArray[22], 0.7f);
             if(other.gameObject.tag.Contains("X"))
                 audioSource.PlayOneShot(audioCLipArray[21], 0.7f);
-            //if(other.gameObject.tag.Contains("Y"))
-            //    audioSource.PlayOneShot(audioCLipArray[24], 0.7f);
             if(other.gameObject.tag.Contains("Z"))
                 audioSource.PlayOneShot(audioCLipArray[22], 0.7f);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
+        /*
         if(other.gameObject.tag == "World"){
             Destroy(other.gameObject);
         }
+        */
+        //if(other.FindGameObjectsWithTag("Letter").Length == 0){
+
+        //}
+        if(other.gameObject.tag.Contains("Letter") || other.gameObject.tag.Contains("Fruit")){
+            if(other.gameObject.tag == "LetterB" && count == 0){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[26], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "FruitPumpkim" && count == 1){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[34], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "LetterC" && count == 2){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[23], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "FruitBanana" && count == 3){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[36], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "LetterM" && count == 4){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[27], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "FruitCarrot" && count == 5){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[37], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "LetterS" && count == 6){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[25], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "FruitApple" && count == 7){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[35], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "LetterK" && count == 8){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[24], 5));
+                count++;
+            }
+            else if(other.gameObject.tag == "FruitCandy" && count == 9){
+                Destroy(other.gameObject);
+                StartCoroutine(playSoundWithDelay(audioCLipArray[32], 1));
+                StartCoroutine(playSoundWithDelay(audioCLipArray[30], 5));
+                count++;
+            }
+            else{
+                StartCoroutine(playSoundWithDelay(audioCLipArray[31], 1));
+            }
+        }
+        
     }
 
     

@@ -33,6 +33,11 @@ TagManager:
   - LetterX
   - LetterY
   - LetterZ
+  - FruitBanana
+  - FruitPumpkim
+  - FruitCarrot
+  - FruitApple
+  - FruitCandy
   layers:
   - Default
   - TransparentFX
